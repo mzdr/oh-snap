@@ -1,0 +1,29 @@
+{
+  "name": "@mzdr/oh-snap",
+  "config": {
+    "src": "./templates/default/src/scss",
+    "dest": "./templates/default"
+  },
+  "scripts": {
+    "build": "npm run compile -- --source-comments --source-map-contents --source-map-embed",
+    "build:prod": "npm run compile -- --output-style compressed",
+    "compile": "node-sass $npm_package_config_src -o $npm_package_config_dest",
+    "postbuild": "npm run postcss",
+    "postbuild:prod": "npm run postcss -- -e prod",
+    "postcss": "postcss $npm_package_config_dest/**/*.css -r -c ./postcss.config.js",
+    "watch": "onchange \"$npm_package_config_src/**/*.scss\" -i -- npm run build"
+  },
+  "author": "Sebastian Prein <hi@sebastianprein.com>",
+  "private": true,
+  "devDependencies": {
+    "autoprefixer": "^8.2.0",
+    "cssnano": "^3.10.0",
+    "node-sass": "^4.8.3",
+    "onchange": "^3.3.0",
+    "postcss-assets": "^5.0.0",
+    "postcss-cli": "^5.0.0",
+    "postcss-replace": "^1.0.2"
+  },
+  "browserslist": "last 2 versions",
+  "dependencies": {}
+}
