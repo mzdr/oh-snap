@@ -1,0 +1,17 @@
+/*! {{ name }} v{{ version }} */
+
+@import "meta/variables";
+@import "shared/base";
+@import "shared/fonts";
+@import "shared/icons";
+@import "shared/syntax";
+@import "components/call-stack";
+@import "components/error-details";
+@import "components/file-path";
+@import "components/frame-details";
+@import "components/highlight-line";
+@import "components/line-numbers";
+@import "components/main-panel";
+@import "components/side-panel";
+@import "components/stack-frame";
+@import "components/system-information";

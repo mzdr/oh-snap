@@ -1,0 +1,17 @@
+.file-path {
+    align-items: baseline;
+    display: flex;
+    opacity: 0.25;
+    word-break: break-all;
+
+    &:empty {
+        display: none;
+    }
+
+    &:not(.-plain)::before {
+        @extend %icon;
+
+        content: map-get($icons, "forward");
+        margin-right: 0.5rem;
+    }
+}

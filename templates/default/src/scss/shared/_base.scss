@@ -1,0 +1,69 @@
+:root {
+    background: linear-gradient(124deg, #3d4063, #242539);
+    color: $color-text;
+    font-family: Inter UI, sans-serif;
+    font-size: 16px;
+    letter-spacing: -0.004em;
+    line-height: 22px;
+    text-rendering: optimizeLegibility;
+
+    text-size-adjust: 100%;
+    overflow-scrolling: touch;
+    scroll-behavior: smooth;
+
+    font-kerning: normal;
+    font-feature-settings: "kern" 1, "liga" 1;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+
+    display: flex;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: Inter UI, sans-serif;
+    font-weight: 700;
+    margin-top: 0;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+    font-size: 30px;
+    letter-spacing: -0.015em;
+    line-height: 42px;
+}
+
+h2 {
+    font-size: 24px;
+    letter-spacing: -0.013em;
+    line-height: 34px;
+}
+
+b,
+strong {
+    font-weight: 700;
+}
+
+small {
+    font-size: 13px;
+    letter-spacing: 0.004em;
+    line-height: 18px;
+}
+
+pre,
+code {
+    font-family: Fira Code, monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}

@@ -1,0 +1,51 @@
+.stack-frame {
+    background-size: contain;
+    box-shadow: 0 1px 0 rgba($color-text, 0.1),
+                -5px 0 0 $color-error;
+    padding: $base-gutter;
+    transition: transform 250ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    &.-no-file > .caller {
+        opacity: 0.5;
+    }
+
+    &:not(.-no-file) {
+        &:hover,
+        &:focus,
+        &.-active {
+            cursor: pointer;
+            transform: translate3d(5px, 0, 0);
+        }
+    }
+
+    > .caller {
+        color: currentColor;
+        font-size: inherit;
+        padding: 0;
+        word-break: break-all;
+    }
+
+    > .file {
+        > .path {
+            flex: 1 1 auto;
+        }
+
+        > .line {
+            min-width: 6ch;
+            text-align: right;
+
+            &:empty {
+                display: none;
+            }
+
+            &::before {
+                content: "\23";
+                opacity: 0.5;
+            }
+        }
+    }
+
+    > .preview {
+        display: none;
+    }
+}

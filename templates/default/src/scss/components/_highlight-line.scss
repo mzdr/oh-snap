@@ -1,0 +1,11 @@
+.highlight-line {
+    background: $color-error;
+    color: $color-text;
+    display: inline-block;
+    font-weight: normal;
+
+    * {
+        color: currentColor !important;
+        font-weight: inherit !important;
+    }
+}

@@ -1,0 +1,27 @@
+.frame-details {
+    padding: $base-gutter;
+
+    > .preview {
+        background-color: rgba($color-text, 0.02);
+        display: flex;
+        margin: 0;
+        overflow: auto;
+        white-space: pre;
+
+        &:not(.-excerpt) {
+            height: calc(420px + 1.5rem);
+        }
+
+        > .code {
+            font-family: inherit;
+            margin-left: 3ch;
+            overflow: visible;
+            padding: 0.75rem 0;
+            position: relative;
+        }
+    }
+
+    > .file-path {
+        margin-bottom: $base-gutter;
+    }
+}

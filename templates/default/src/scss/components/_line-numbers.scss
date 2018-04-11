@@ -1,0 +1,14 @@
+.line-numbers {
+    min-width: 5ch;
+
+    > .line {
+        background-color: rgba($color-text, 0.02);
+        display: block;
+        opacity: 0.25;
+        padding: 0 1ch;
+        text-align: center;
+
+        &:first-child { padding-top: 0.75rem; }
+        &:last-child { padding-bottom: 0.75rem; }
+    }
+}

@@ -1,0 +1,27 @@
+.error-details {
+    $highlight-color: lighten(saturate(adjust-hue(#da3853, 1), 21.52), 10.39); // #f6516a
+
+    background-image: linear-gradient(236deg, $highlight-color, $color-error);
+    margin: 0;
+    padding: 2.25rem $base-gutter;
+
+    > .preview,
+    > .file {
+        display: none;
+    }
+
+    > .type {
+        align-items: baseline;
+        display: flex;
+
+        > .icon {
+            margin-right: 0.5rem;
+        }
+    }
+
+    > .message {
+        display: block;
+        margin-bottom: 0;
+        margin-top: 1rem;
+    }
+}
