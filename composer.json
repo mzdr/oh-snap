@@ -1,0 +1,24 @@
+{
+    "name": "mzdr/oh-snap",
+    "description": "A pretty formatter for BooBoo.",
+    "version": "1.0.0",
+    "homepage": "https://github.com/mzdr/oh-snap",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastian Prein",
+            "email": "hi@sebastianprein.com"
+        }
+    ],
+    "require": {
+        "league/booboo": "^2.0",
+        "php": ">=5.6.0",
+        "kint-php/kint": "^2.2",
+        "jasny/php-functions": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "mzdr\\OhSnap\\": "src/"
+        }
+    }
+}
