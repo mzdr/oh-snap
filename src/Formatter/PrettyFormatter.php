@@ -213,7 +213,7 @@ class PrettyFormatter extends AbstractFormatter
             return 1;
         }
 
-        return max(0, $line - floor($this->getExcerptSize() / 2));
+        return max(1, $line - floor($this->getExcerptSize() / 2));
     }
 
     /**
@@ -318,21 +318,22 @@ class PrettyFormatter extends AbstractFormatter
             return "Unable to read “{$file}”.";
         }
 
-        $raw = file($file);
-        $markLine = max(0, $markLine - 1);
+        $raw = file($file, FILE_IGNORE_NEW_LINES);
 
         foreach ($raw as $index => &$line) {
             $line = htmlspecialchars($line);
 
-            if ($index === $markLine) {
-                $line = sprintf('<mark class="highlight-line">%s</mark>' . "\n", $line);
+            if ($index + 1 === $markLine) {
+                $line = sprintf('<mark class="highlight-line">%s</mark>', $line);
             }
+
+            $line .= "\n";
         }
 
         if ($this->isExcerptOnly() === true) {
             $raw = array_slice(
                 $raw,
-                $this->getExcerptStart($markLine),
+                $this->getExcerptStart($markLine) - 1,
                 $this->getExcerptSize(),
                 true
             );
