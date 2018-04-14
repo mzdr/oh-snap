@@ -1,5 +1,7 @@
 /*! {{ name }} v{{ version }} */
 
+@import "~include-media/dist/include-media";
+
 @import "meta/variables";
 @import "shared/base";
 @import "shared/fonts";

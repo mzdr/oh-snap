@@ -7,7 +7,7 @@
   "scripts": {
     "build": "npm run compile -- --source-comments --source-map-contents --source-map-embed",
     "build:prod": "npm run compile -- --output-style compressed",
-    "compile": "node-sass $npm_package_config_src -o $npm_package_config_dest",
+    "compile": "node-sass $npm_package_config_src -o $npm_package_config_dest --importer ./node_modules/node-sass-magic-importer/dist/cli.js",
     "postbuild": "npm run postcss",
     "postbuild:prod": "npm run postcss -- -e prod",
     "postcss": "postcss $npm_package_config_dest/**/*.css -r -c ./postcss.config.js",
@@ -19,11 +19,14 @@
     "autoprefixer": "^8.2.0",
     "cssnano": "^3.10.0",
     "node-sass": "^4.8.3",
+    "node-sass-magic-importer": "^5.1.2",
     "onchange": "^3.3.0",
     "postcss-assets": "^5.0.0",
     "postcss-cli": "^5.0.0",
     "postcss-replace": "^1.0.2"
   },
   "browserslist": "last 2 versions",
-  "dependencies": {}
+  "dependencies": {
+    "include-media": "^1.4.9"
+  }
 }
