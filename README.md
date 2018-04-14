@@ -17,6 +17,8 @@ Don’t forget to check out the official documentation of [BooBoo] on how to use
 ```php
 <?php
 
+require __DIR__ . '/vendor/autoload.php';
+
 use League\BooBoo\BooBoo;
 use mzdr\OhSnap\Formatter\PrettyFormatter;
 
@@ -39,9 +41,10 @@ $options = [
     'excerptSize' => 20
 ];
 
-$booboo = new League\BooBoo\BooBoo();
-$booboo->pushFormatter(new PrettyFormatter($options))
+$booboo = new BooBoo([new PrettyFormatter($options)]);
 $booboo->register();
+
+throw new RuntimeException('Hi there! 👋');
 ```
 
 ## License
