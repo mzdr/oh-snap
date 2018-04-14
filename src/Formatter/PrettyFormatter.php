@@ -350,7 +350,17 @@ class PrettyFormatter extends AbstractFormatter
      */
     protected function render($error)
     {
-        return $this->read($this->getTemplate(), 'require', ['error' => $error]);
+        return $this->read($this->getTemplate(), 'require', [
+            'error' => $error,
+            'showCode' => $this->isExcerptOnly() === false || $this->getExcerptSize() > 0,
+            'hasFrames' => count($error->frames) > 0,
+            'ife' => function ($condition, $if, $else = null) {
+                return $condition ? $if : $else;
+            },
+            'classes' => function (...$classes) {
+                return implode(' ', $classes);
+            }
+        ]);
     }
 
     /**

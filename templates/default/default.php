@@ -6,9 +6,7 @@
     <link rel="shortcut icon" href="data:image/png;base64,<?= $this->read(__DIR__ . '/favicon.png', 'base64') ?>">
     <style><?= $this->read($this->getTheme() ? $this->getTheme() : __DIR__ . '/styles.css') ?></style>
 </head>
-<body>
-    <?php $showCode = $this->isExcerptOnly() === false || $this->getExcerptSize() > 0; ?>
-
+<body class="<?= $classes($ife($hasFrames === false, '-columns')) ?>">
     <aside class="side-panel">
         <section class="error-details" data-error>
             <div class="type">
@@ -23,12 +21,13 @@
             <small class="file" data-file-path><?= $error->file ?></small>
         </section>
 
+        <?php if ($hasFrames): ?>
         <ul class="call-stack">
             <?php foreach ($error->frames as $frame): ?>
                 <?php $file = $frame->getFile(); ?>
                 <?php $line = $frame->getLine(); ?>
 
-                <li class="stack-frame<?= $file && $showCode ? '' : ' -no-file' ?> " data-frame>
+                <li class="<?= $classes('stack-frame', $ife($file && $showCode, '-no-file')) ?>" data-frame>
                     <code class="caller php" data-highlight><?= $this->getCaller($frame); ?></code>
 
                     <?php if ($file && $showCode): ?>
@@ -44,13 +43,14 @@
                 </li>
             <?php endforeach; ?>
         </ul>
+        <?php endif; ?>
     </aside>
 
     <main class="main-panel">
         <?php if ($showCode): ?>
             <section class="frame-details" data-current-frame>
                 <small class="file-path" data-path></small>
-                <pre class="preview<?= $this->isExcerptOnly() ? ' -excerpt' : '' ?>" data-preview></pre>
+                <pre class="<?= $classes('preview', $ife($this->isExcerptOnly(), '-excerpt')) ?>" data-preview></pre>
             </section>
         <?php endif; ?>
         </section>
