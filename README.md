@@ -44,7 +44,7 @@ $options = [
 $booboo = new BooBoo([new PrettyFormatter($options)]);
 $booboo->register();
 
-throw new RuntimeException('Hi there! 👋');
+throw new RuntimeException('Oh snap! 🙈');
 ```
 
 ## License
