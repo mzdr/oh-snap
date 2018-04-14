@@ -24,12 +24,13 @@
             hljs.highlightBlock($code);
 
             var offset = parseInt($lineNumbers.dataset.start, 10);
+            var limit = $code.innerHTML.split(/\n/g).length;
 
-            for (var n = 0; n < $code.innerHTML.split(/[\n\r]/g).length; n++) {
+            for (var n = 0; n < limit; n++) {
                 var $span = document.createElement('span');
 
                 $span.textContent = n + offset;
-                $span.classList.add('line')
+                $span.classList.add('line');
 
                 $lineNumbers.appendChild($span);
             }
@@ -41,7 +42,7 @@
         $currentFramePath.textContent = $filePath.textContent;
         $currentFramePreview.innerHTML = $preview.innerHTML;
 
-        $markedLine = $currentFramePreview.querySelector('mark');
+        var $markedLine = $currentFramePreview.querySelector('mark');
 
         if ($markedLine !== null) {
             $currentFramePreview.scrollTo(
