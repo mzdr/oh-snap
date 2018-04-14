@@ -93,7 +93,6 @@ class PrettyFormatter extends AbstractFormatter
         }
 
         return $this->render((object) [
-            'code'      => is_readable($ex->getFile()) ? file_get_contents($ex->getFile()) : null,
             'file'      => $ex->getFile(),
             'frames'    => $this->inspector->getFrames(),
             'line'      => $ex->getLine(),
