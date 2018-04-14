@@ -315,7 +315,7 @@ class PrettyFormatter extends AbstractFormatter
     protected function getFileContents($file, $markLine = null)
     {
         if (is_readable($file) === false) {
-            throw new RuntimeException("Unable to read “{$file}”.");
+            return "Unable to read “{$file}”.";
         }
 
         $raw = file($file);
