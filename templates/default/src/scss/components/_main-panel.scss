@@ -1,5 +1,7 @@
-.main-panel {
-    height: 100%;
-    width: 60%;
-    overflow: auto;
+:not(.-columns) > .main-panel {
+    @include media(">=desktop") {
+        height: 100%;
+        width: 60%;
+        overflow: auto;
+    }
 }

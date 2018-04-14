@@ -5,6 +5,10 @@
     margin: 0;
     padding: 2.25rem $base-gutter;
 
+    @include media(">=desktop") {
+        padding: $base-gutter;
+    }
+
     > .preview,
     > .file {
         display: none;

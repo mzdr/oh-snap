@@ -1,5 +1,5 @@
 :root {
-    background: linear-gradient(124deg, #3d4063, #242539);
+    background: linear-gradient(124deg, #3d4063, #242539) center/cover no-repeat fixed;
     color: $color-text;
     font-family: Inter UI, sans-serif;
     font-size: 16px;
@@ -17,13 +17,22 @@
 
 html,
 body {
-    height: 100%;
+    @include media(">=desktop") {
+        height: 100%;
+    }
 }
 
 body {
-
     display: flex;
     margin: 0;
+
+    &.-columns {
+        flex-direction: column;
+    }
+
+    @include media("<desktop") {
+        flex-direction: column;
+    }
 }
 
 h1,
