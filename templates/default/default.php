@@ -27,7 +27,7 @@
                 <?php $file = $frame->getFile(); ?>
                 <?php $line = $frame->getLine(); ?>
 
-                <li class="<?= $classes('stack-frame', $ife($file && $showCode, '-no-file')) ?>" data-frame>
+                <li class="<?= $classes('stack-frame', $ife($file && $showCode, '-file')) ?>" data-frame>
                     <code class="caller php" data-highlight><?= $this->getCaller($frame); ?></code>
 
                     <?php if ($file && $showCode): ?>

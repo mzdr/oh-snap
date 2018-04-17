@@ -330,7 +330,7 @@ class PrettyFormatter extends AbstractFormatter
                 return $condition ? $if : $else;
             },
             'classes' => function (...$classes) {
-                return implode(' ', $classes);
+                return implode(' ', array_filter($classes, 'strlen'));
             }
         ]);
     }
