@@ -6,8 +6,6 @@ use ErrorException;
 use Exception;
 use InvalidArgumentException;
 use Jasny;
-use Kint;
-use Kint_Renderer_Rich;
 use League\BooBoo\Formatter\AbstractFormatter;
 use League\BooBoo\Util\Frame;
 use League\BooBoo\Util\Inspector;
@@ -52,10 +50,6 @@ class PrettyFormatter extends AbstractFormatter
 
     public function __construct($options = [])
     {
-        Kint::$return = true;
-        Kint::$display_called_from = false;
-        Kint_Renderer_Rich::$theme = 'plain.css';
-
         if (is_object($options) === false) {
             $options = (object) $options;
         }
@@ -279,28 +273,6 @@ class PrettyFormatter extends AbstractFormatter
         }
 
         return join(', ', $result);
-    }
-
-    /**
-     * Returns information about the current system including several (global) variables.
-     *
-     * @return int|string
-     */
-    protected function getSystemInformation()
-    {
-        if (isset($_SESSION) === false) {
-            $_SESSION = [];
-        }
-
-        return Kint::dump(
-            $_SERVER,
-            $_GET,
-            $_POST,
-            $_FILES,
-            $_COOKIE,
-            $_SESSION,
-            $_ENV
-        );
     }
 
     /**
