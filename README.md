@@ -1,6 +1,7 @@
-# 💥 Oh Snap!
+![Screenshot](screenshot.jpg)
 
-A pretty formatter for [BooBoo].
+<h3 align="center">💥 Oh Snap!</h3>
+<p align="center">A pretty formatter for <a href="https://github.com/thephpleague/booboo">BooBoo</a>.</p><br><br>
 
 ## Installation
 
@@ -11,6 +12,8 @@ composer require mzdr/oh-snap
 ```
 
 Don’t forget to check out the official documentation of [BooBoo] on how to use and install it.
+
+<br>
 
 ## Usage
 
@@ -46,6 +49,8 @@ $booboo->register();
 
 throw new RuntimeException('Oh snap! 🙈');
 ```
+
+<br>
 
 ## License
 
