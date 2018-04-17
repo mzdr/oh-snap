@@ -253,18 +253,33 @@ class PrettyFormatter extends AbstractFormatter
         };
 
         foreach ($args as $key => $arg) {
-            if (is_string($arg)) {
-                $string = $stringify($arg);
-            } elseif (is_object($arg)) {
-                $string = get_class($arg);
-            } elseif (is_array($arg)) {
-                $string = "[{$this->getArgumentsAsString($arg)}]";
-            } elseif (is_null($arg)) {
-                $string = 'null';
-            } elseif (is_bool($arg)) {
-                $string = $arg ? 'true' : 'false';
-            } else {
-                $string = $arg;
+            switch (strtolower(gettype($arg))) {
+                case 'string':
+                    $string = $stringify($arg);
+                    break;
+
+                case 'object':
+                    $string = get_class($arg);
+                    break;
+
+                case 'array':
+                    $string = "[{$this->getArgumentsAsString($arg)}]";
+                    break;
+
+                case 'null':
+                    $string = 'null';
+                    break;
+
+                case 'boolean':
+                    $string = $arg ? 'true' : 'false';
+                    break;
+
+                case 'resource':
+                    $string = sprintf('*%s', get_resource_type($arg));
+                    break;
+
+                default:
+                    $string = $arg;
             }
 
             if ($isNumeric === false) {
