@@ -261,6 +261,8 @@ class PrettyFormatter extends AbstractFormatter
                 $string = "[{$this->getArgumentsAsString($arg)}]";
             } elseif (is_null($arg)) {
                 $string = 'null';
+            } elseif (is_bool($arg)) {
+                $string = $arg ? 'true' : 'false';
             } else {
                 $string = $arg;
             }
