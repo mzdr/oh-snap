@@ -4,7 +4,10 @@
     <meta charset="utf-8">
     <title><?= $error->type ?>&hellip;</title>
     <link rel="shortcut icon" href="data:image/png;base64,<?= $this->read(__DIR__ . '/favicon.png', 'base64') ?>">
-    <style><?= $this->read($this->getTheme() ? $this->getTheme() : __DIR__ . '/styles.css') ?></style>
+
+    <?php foreach ($this->getTheme() as $theme): ?>
+        <style><?= $this->read($theme) ?></style>
+    <?php endforeach; ?>
 </head>
 <body class="<?= $classes($ife($hasFrames === false, '-columns')) ?>">
     <header class="header-panel"><?= $header ?></header>

@@ -14,6 +14,13 @@ use RuntimeException;
 class PrettyFormatter extends AbstractFormatter
 {
     /**
+     * Path to default theme CSS file.
+     *
+     * @var string
+     */
+    private static $defaultCSS = __DIR__ . '/../../templates/default/styles.css';
+
+    /**
      * Template file to use for printing error page.
      *
      * @var string
@@ -21,12 +28,12 @@ class PrettyFormatter extends AbstractFormatter
     protected $template = __DIR__ . '/../../templates/default/default.php';
 
     /**
-     * Theme to use for adjusting default template. This is – preferably an absolute –
-     * path to a CSS file, because it will be injected.
+     * List of CSS files to use for the default template. A value of 'default'
+     * represents the default CSS file.
      *
-     * @var string
+     * @var array
      */
-    protected $theme;
+    protected $theme = [];
 
     /**
      * If enabled, PrettyFormatter::getFileContents() will only return an excerpt,
@@ -68,10 +75,10 @@ class PrettyFormatter extends AbstractFormatter
             $options = (object) $options;
         }
 
+        $this->setTheme(isset($options->theme) ? $options->theme : ['default']);
+
         if (isset($options->template)) {
             $this->setTemplate($options->template);
-        } elseif (isset($options->theme)) {
-            $this->setTheme($options->theme);
         }
 
         if (isset($options->excerptOnly)) {
@@ -146,27 +153,37 @@ class PrettyFormatter extends AbstractFormatter
     }
 
     /**
-     * Sets the theme file to use for theming the default template.
+     * Sets the theme files to use for theming the default template.
      *
-     * @param string $theme Path to theme CSS file.
+     * @param array $theme Path to theme CSS files.
      * @return PrettyFormatter
-     * @throws RuntimeException If theme file is not readable.
+     * @throws RuntimeException If one of theme files is not readable.
      */
     public function setTheme($theme)
     {
-        if (is_readable($theme) === false) {
-            throw new RuntimeException("Unable to read theme file “{$theme}”.");
-        }
+        $this->theme = [];
 
-        $this->theme = $theme;
+        foreach ((array) $theme as $path) {
+            if ($path === 'default') {
+                $this->theme[] = self::$defaultCSS;
+
+                continue;
+            }
+
+            if (is_readable($path) === false) {
+                throw new RuntimeException("Unable to read theme file “{$path}”.");
+            }
+
+            $this->theme[] = $path;
+        }
 
         return $this;
     }
 
     /**
-     * Returns the currently set theme file.
+     * Returns the currently set theme files.
      *
-     * @return null|string
+     * @return array
      */
     public function getTheme()
     {
