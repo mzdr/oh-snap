@@ -53,9 +53,8 @@
                 <pre class="<?= $classes('preview', $ife($this->isExcerptOnly(), '-excerpt')) ?>" data-preview></pre>
             </section>
         <?php endif; ?>
-        </section>
     </main>
 
-    <script src="data:text/javascript;base64,<?= $this->read(__DIR__ . '/scripts.js', 'base64') ?>"></script>
+    <script><?= $this->read(__DIR__ . '/scripts.js') ?></script>
 </body>
 </html>
