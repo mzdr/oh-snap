@@ -2,7 +2,7 @@
     font-family: Fira Code;
     font-weight: normal;
     font-style: normal;
-    src: inline("./fonts/FiraCode-Regular.woff2") format("woff2"),
+    src: // inline("./fonts/FiraCode-Regular.woff2") format("woff2"),
          inline("./fonts/FiraCode-Regular.woff") format("woff");
 }
 
@@ -10,7 +10,7 @@
     font-family: Icons;
     font-weight: normal;
     font-style: normal;
-    src: inline("./fonts/Icons.woff2") format("woff2"),
+    src: // inline("./fonts/Icons.woff2") format("woff2"),
          inline("./fonts/Icons.woff") format("woff");
 }
 
@@ -18,7 +18,7 @@
     font-family: Inter UI;
     font-style:  normal;
     font-weight: 400;
-    src: inline("./fonts/Inter-UI-Regular.woff2") format("woff2"),
+    src: // inline("./fonts/Inter-UI-Regular.woff2") format("woff2"),
          inline("./fonts/Inter-UI-Regular.woff") format("woff");
 }
 
@@ -26,6 +26,6 @@
     font-family: Inter UI;
     font-style:  normal;
     font-weight: 700;
-    src: inline("./fonts/Inter-UI-Bold.woff2") format("woff2"),
+    src: // inline("./fonts/Inter-UI-Bold.woff2") format("woff2"),
          inline("./fonts/Inter-UI-Bold.woff") format("woff");
 }
