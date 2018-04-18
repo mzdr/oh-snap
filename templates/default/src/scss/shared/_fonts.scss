@@ -6,12 +6,14 @@
          inline("./fonts/FiraCode-Regular.woff") format("woff");
 }
 
-@font-face {
-    font-family: Icons;
-    font-weight: normal;
-    font-style: normal;
-    src: // inline("./fonts/Icons.woff2") format("woff2"),
-         inline("./fonts/Icons.woff") format("woff");
+
+@if $font-icon == Entypo {
+    @font-face {
+        font-family: Entypo;
+        font-weight: normal;
+        font-style: normal;
+        src: inline("./fonts/Entypo.woff") format("woff");
+    }
 }
 
 @font-face {
