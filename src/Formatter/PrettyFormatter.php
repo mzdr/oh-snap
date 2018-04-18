@@ -44,6 +44,20 @@ class PrettyFormatter extends AbstractFormatter
     protected $excerptSize = 20;
 
     /**
+     * Optional header content to be placed in default template.
+     *
+     * @var string
+     */
+    protected $header = '';
+
+    /**
+     * Optional footer content to be placed in default template.
+     *
+     * @var string
+     */
+    protected $footer = '';
+
+    /**
      * @var Inspector
      */
     protected $inspector;
@@ -66,6 +80,14 @@ class PrettyFormatter extends AbstractFormatter
 
         if (isset($options->excerptSize)) {
             $this->setExcerptSize($options->excerptSize);
+        }
+
+        if (isset($options->header)) {
+            $this->setHeader($options->header);
+        }
+
+        if (isset($options->footer)) {
+            $this->setFooter($options->footer);
         }
     }
 
@@ -177,6 +199,48 @@ class PrettyFormatter extends AbstractFormatter
     public function getExcerptSize()
     {
         return $this->excerptSize;
+    }
+
+    /**
+     * Sets the header content for the default template.
+     * Other templates may support this feature.
+     *
+     * @param string $header Header content.
+     */
+    public function setHeader($header)
+    {
+        $this->header = $header;
+    }
+
+    /**
+     * Returns the currently set header content.
+     *
+     * @return string
+     */
+    public function getHeader()
+    {
+        return $this->header;
+    }
+
+    /**
+     * Sets the footer content for the default template.
+     * Other templates may support this feature.
+     *
+     * @param string $footer
+     */
+    public function setFooter($footer)
+    {
+        $this->footer = $footer;
+    }
+
+    /**
+     * Returns the currently set footer content.
+     *
+     * @return string
+     */
+    public function getFooter()
+    {
+        return $this->footer;
     }
 
     /**
@@ -341,6 +405,8 @@ class PrettyFormatter extends AbstractFormatter
     {
         return $this->read($this->getTemplate(), 'require', [
             'error' => $error,
+            'header' => $this->getHeader(),
+            'footer' => $this->getFooter(),
             'showCode' => $this->isExcerptOnly() === false || $this->getExcerptSize() > 0,
             'hasFrames' => count($error->frames) > 0,
             'ife' => function ($condition, $if, $else = null) {

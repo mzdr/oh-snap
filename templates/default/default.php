@@ -7,6 +7,8 @@
     <style><?= $this->read($this->getTheme() ? $this->getTheme() : __DIR__ . '/styles.css') ?></style>
 </head>
 <body class="<?= $classes($ife($hasFrames === false, '-columns')) ?>">
+    <header class="header-panel"><?= $header ?></header>
+
     <aside class="side-panel">
         <section class="error-details" data-error>
             <div class="type">
@@ -54,6 +56,8 @@
             </section>
         <?php endif; ?>
     </main>
+
+    <footer class="footer-panel"><?= $footer ?></footer>
 
     <script><?= $this->read(__DIR__ . '/scripts.js') ?></script>
 </body>
