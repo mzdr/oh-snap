@@ -1,7 +1,7 @@
 :root {
     background: linear-gradient(124deg, #3d4063, #242539) center/cover no-repeat fixed;
     color: $color-text;
-    font-family: Inter UI, sans-serif;
+    font-family: $font-text;
     font-size: 16px;
     letter-spacing: -0.004em;
     line-height: 22px;
@@ -39,7 +39,7 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: Inter UI, sans-serif;
+    font-family: $font-headline;
     font-weight: 700;
     margin-top: 0;
 
@@ -78,7 +78,7 @@ small {
 
 pre,
 code {
-    font-family: Fira Code, monospace;
+    font-family: $font-code;
     font-size: 14px;
     letter-spacing: 0;
     line-height: 1.5;

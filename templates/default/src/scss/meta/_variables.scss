@@ -1,10 +1,13 @@
-$color-keyword: #8be9fd;
-$color-function: #ff79c6;
-$color-text: #f8f8f2;
-$color-string: #f1fa8c;
-$color-comment: #6272a4;
-$color-error: #da3853;
+$color-keyword: #8be9fd !default;
+$color-function: #ff79c6 !default;
+$color-text: #f8f8f2 !default;
+$color-string: #f1fa8c !default;
+$color-comment: #6272a4 !default;
+$color-error: #da3853 !default;
 
-$base-gutter: 1.75rem;
+$font-code: Fira Code, monospace !default;
+$font-text: Inter UI, sans-serif !default;
+$font-headline: $font-text !default;
 $font-icon: Entypo !default;
 
+$base-gutter: 1.75rem !default;

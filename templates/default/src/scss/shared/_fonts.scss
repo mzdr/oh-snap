@@ -1,9 +1,10 @@
-@font-face {
-    font-family: Fira Code;
-    font-weight: normal;
-    font-style: normal;
-    src: // inline("./fonts/FiraCode-Regular.woff2") format("woff2"),
-         inline("./fonts/FiraCode-Regular.woff") format("woff");
+@if index($font-code, Fira Code) {
+    @font-face {
+        font-family: Fira Code;
+        font-weight: normal;
+        font-style: normal;
+        src: inline("./fonts/FiraCode-Regular.woff") format("woff");
+    }
 }
 
 
@@ -16,18 +17,18 @@
     }
 }
 
-@font-face {
-    font-family: Inter UI;
-    font-style:  normal;
-    font-weight: 400;
-    src: // inline("./fonts/Inter-UI-Regular.woff2") format("woff2"),
-         inline("./fonts/Inter-UI-Regular.woff") format("woff");
-}
+@if index($font-text, Inter UI) {
+    @font-face {
+        font-family: Inter UI;
+        font-style:  normal;
+        font-weight: 400;
+        src: inline("./fonts/Inter-UI-Regular.woff") format("woff");
+    }
 
-@font-face {
-    font-family: Inter UI;
-    font-style:  normal;
-    font-weight: 700;
-    src: // inline("./fonts/Inter-UI-Bold.woff2") format("woff2"),
-         inline("./fonts/Inter-UI-Bold.woff") format("woff");
+    @font-face {
+        font-family: Inter UI;
+        font-style:  normal;
+        font-weight: 700;
+        src: inline("./fonts/Inter-UI-Bold.woff") format("woff");
+    }
 }
