@@ -432,6 +432,14 @@ class PrettyFormatter extends AbstractFormatter
 
         $showCode = $this->isExcerptOnly() === false || $this->getExcerptSize() > 0;
 
+        if (is_readable($header = $this->getHeader())) {
+            $header = $this->read($header, 'require', compact('ife', 'classes'));
+        }
+
+        if (is_readable($footer = $this->getFooter())) {
+            $footer = $this->read($footer, 'require', compact('ife', 'classes'));
+        }
+
         return $this->read(
             $this->getTemplate(), 'require', compact(
                 'error', 'ife', 'classes', 'showCode', 'header', 'footer'
