@@ -116,11 +116,13 @@ class PrettyFormatter extends AbstractFormatter
         }
 
         return $this->render((object) [
-            'file'      => $ex->getFile(),
-            'frames'    => $this->inspector->getFrames(),
-            'line'      => $ex->getLine(),
-            'message'   => $ex->getMessage(),
-            'type'      => $type
+            'file'              => $ex->getFile(),
+            'frames'            => $this->inspector->getFrames(),
+            'hasFrames'         => $this->inspector->hasFrames(),
+            'line'              => $ex->getLine(),
+            'message'           => $ex->getMessage(),
+            'previousException' => $this->inspector->getPreviousExceptionInspector(),
+            'type'              => $type
         ]);
     }
 
@@ -420,19 +422,21 @@ class PrettyFormatter extends AbstractFormatter
      */
     protected function render($error)
     {
-        return $this->read($this->getTemplate(), 'require', [
-            'error' => $error,
-            'header' => $this->getHeader(),
-            'footer' => $this->getFooter(),
-            'showCode' => $this->isExcerptOnly() === false || $this->getExcerptSize() > 0,
-            'hasFrames' => count($error->frames) > 0,
-            'ife' => function ($condition, $if, $else = null) {
-                return $condition ? $if : $else;
-            },
-            'classes' => function (...$classes) {
-                return implode(' ', array_filter($classes, 'strlen'));
-            }
-        ]);
+        $ife = function ($condition, $if, $else = null) {
+            return $condition ? $if : $else;
+        };
+
+        $classes = function (...$classes) {
+            return implode(' ', array_filter($classes, 'strlen'));
+        };
+
+        $showCode = $this->isExcerptOnly() === false || $this->getExcerptSize() > 0;
+
+        return $this->read(
+            $this->getTemplate(), 'require', compact(
+                'error', 'ife', 'classes', 'showCode', 'header', 'footer'
+            )
+        );
     }
 
     /**

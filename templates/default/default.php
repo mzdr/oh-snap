@@ -10,7 +10,7 @@
         <style><?= $this->read($theme) ?></style>
     <?php endforeach; ?>
 </head>
-<body class="<?= $classes($ife($hasFrames === false, '-columns')) ?>">
+<body class="<?= $classes($ife($error->hasFrames === false, '-columns')) ?>">
     <header class="header-panel"><?= $header ?></header>
 
     <aside class="side-panel">
@@ -27,7 +27,7 @@
             <small class="file" data-file-path><?= $error->file ?></small>
         </section>
 
-        <?php if ($hasFrames): ?>
+        <?php if ($error->hasFrames): ?>
         <ul class="call-stack">
             <?php foreach ($error->frames as $frame): ?>
                 <?php $file = $frame->getFile(); ?>
