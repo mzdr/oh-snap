@@ -16,14 +16,14 @@
   "author": "Sebastian Prein <hi@sebastianprein.com>",
   "private": true,
   "devDependencies": {
-    "autoprefixer": "^8.2.0",
+    "autoprefixer": "^8.4.1",
     "cssnano": "^3.10.0",
-    "node-sass": "^4.8.3",
+    "node-sass": "^4.9.0",
     "node-sass-magic-importer": "^5.1.2",
     "onchange": "^3.3.0",
     "postcss-assets": "^5.0.0",
     "postcss-cli": "^5.0.0",
-    "postcss-replace": "^1.0.2"
+    "postcss-replace": "^1.0.3"
   },
   "browserslist": "last 2 versions",
   "dependencies": {
