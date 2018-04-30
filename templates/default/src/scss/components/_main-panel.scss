@@ -1,7 +1,7 @@
-:not(.-columns) > .main-panel {
+.main-panel {
     @include media(">=desktop") {
-        height: 100%;
-        width: 60%;
+        display: flex;
+        flex: 1 1 auto;
         overflow: auto;
     }
 }

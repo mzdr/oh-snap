@@ -1,4 +1,6 @@
 .frame-details {
+    flex: 1 1 auto;
+    overflow: auto;
     padding: $base-gutter;
 
     > .preview {
@@ -8,13 +10,17 @@
         overflow: auto;
         white-space: pre;
 
-        &:not(.-excerpt) {
-            height: calc(420px + 1.5rem);
+        @include media(">=desktop") {
+            &:not(.-excerpt) {
+                $line-height: 21px;
+
+                height: calc(#{$line-height * 20} + 1.5rem);
+            }
         }
 
         > .code {
             font-family: inherit;
-            margin-left: 3ch;
+            margin: 0 $base-gutter 0 3ch;
             overflow: visible;
             padding: 0.75rem 0;
             position: relative;

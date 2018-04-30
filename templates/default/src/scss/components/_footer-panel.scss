@@ -1,5 +1,15 @@
 .footer-panel {
-    opacity: 0.125;
+    background-color: rgba($color-text, 0.02);
+    box-shadow: inset 0 1px 0 rgba($color-text, 0.125);
+    color: rgba($color-text, 0.25);
     padding: $base-gutter;
-    text-align: right;
+    text-align: center;
+
+    @include media(">=desktop") {
+        text-align: right;
+    }
+
+    &:empty {
+        display: none;
+    }
 }

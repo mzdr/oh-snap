@@ -1,0 +1,9 @@
+.header-panel {
+    background-color: rgba($color-text, 0.02);
+    box-shadow: 0 1px 0 rgba($color-text, 0.125);
+    padding: $base-gutter;
+
+    &:empty {
+        display: none;
+    }
+}
