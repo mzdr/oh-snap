@@ -42,8 +42,9 @@ $options = [
     // Amount of lines the code preview should have…
     'excerptSize' => 20,
 
-    // Optional header/footer content to show.
-    // HTML will not be stripped.
+    // Optional header/footer content to show. May be a path
+    // to a file that should be required. Output will not be
+    // sanitized in any way.
     'header' => '',
     'footer' => ''
 ];
