@@ -1,7 +1,9 @@
 .main-panel {
     @include media(">=desktop") {
-        display: flex;
-        flex: 1 1 auto;
-        overflow: auto;
+        .has-frames & {
+            display: flex;
+            flex: 1 1 auto;
+            overflow: auto;
+        }
     }
 }

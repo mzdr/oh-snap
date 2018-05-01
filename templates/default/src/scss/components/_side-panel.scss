@@ -1,8 +1,11 @@
 .side-panel {
     @include media(">=desktop") {
         box-shadow: inset -1px 0 0 rgba($color-text, 0.125);
-        flex: 1 1 auto;
         min-width: 400px;
         overflow: auto;
+
+        .has-frames & {
+            flex: 1 1 auto;
+        }
     }
 }

@@ -1,7 +1,14 @@
 .frame-details {
-    flex: 1 1 auto;
+    $line-height: 21px;
+
     overflow: auto;
     padding: $base-gutter;
+
+    @include media(">=desktop") {
+        .has-frames & {
+            flex: 1 1 auto;
+        }
+    }
 
     > .preview {
         background-color: rgba($color-text, 0.02);
@@ -10,12 +17,8 @@
         overflow: auto;
         white-space: pre;
 
-        @include media(">=desktop") {
-            &:not(.-excerpt) {
-                $line-height: 21px;
-
-                height: calc(#{$line-height * 20} + 1.5rem);
-            }
+        &:not(.-excerpt) {
+            height: calc(#{$line-height * 20} + 1.5rem);
         }
 
         > .code {

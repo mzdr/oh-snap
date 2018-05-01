@@ -11,7 +11,7 @@
         <style><?= $this->read($theme) ?></style>
     <?php endforeach; ?>
 </head>
-<body>
+<body class="<?= $classes($ife($error->hasFrames, 'has-frames')) ?>">
     <header class="header-panel"><?= $header ?></header>
 
     <main class="main-panel">
