@@ -77,7 +77,7 @@ If you just want to **repaint** the default template this is the way to go. You 
 $options = [
 
     // Building on top of default styles…
-    'theme' => ['default', 'path/to/your.css'],
+    'theme' => ['default', 'path/to/your.css', 'a { color: pink; }'],
 
     // Using different stylesheet…
     'theme' => ['path/to/your.css'],

@@ -159,24 +159,13 @@ class PrettyFormatter extends AbstractFormatter
      *
      * @param array $theme Path to theme CSS files.
      * @return PrettyFormatter
-     * @throws RuntimeException If one of theme files is not readable.
      */
     public function setTheme($theme)
     {
         $this->theme = [];
 
         foreach ((array) $theme as $path) {
-            if ($path === 'default') {
-                $this->theme[] = self::$defaultCSS;
-
-                continue;
-            }
-
-            if (is_readable($path) === false) {
-                throw new RuntimeException("Unable to read theme file “{$path}”.");
-            }
-
-            $this->theme[] = $path;
+            $this->theme[] = $path === 'default' ? self::$defaultCSS : $path;
         }
 
         return $this;
@@ -474,7 +463,7 @@ class PrettyFormatter extends AbstractFormatter
             return ob_get_clean();
         }
 
-        $raw = file_get_contents($file);
+        $raw = is_readable($file) === true ? file_get_contents($file) : $file;
 
         if ($type === 'base64') {
             return base64_encode($raw);
