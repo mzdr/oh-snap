@@ -45,8 +45,8 @@ $options = [
     // Optional header/footer content to show. May be a path
     // to a file that should be required. Output will not be
     // sanitized in any way.
-    'header' => '',
-    'footer' => ''
+    'header' => null,
+    'footer' => null
 ];
 
 $booboo = new BooBoo([new PrettyFormatter($options)]);
