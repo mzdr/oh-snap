@@ -1,4 +1,4 @@
-![Screenshot](screenshot.jpg)
+![Screenshot](screenshot.png)
 
 <h3 align="center">💥 Oh Snap!</h3>
 <p align="center">A pretty formatter for <a href="https://github.com/thephpleague/booboo">BooBoo</a>.</p><br><br>
